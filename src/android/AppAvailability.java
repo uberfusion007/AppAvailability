@@ -27,7 +27,7 @@ public class AppAvailability extends CordovaPlugin {
         final PackageManager pm = ctx.getPackageManager();
 
         try {
-            return pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            return pm.getPackageInfo(uri, PackageManager.GET_META_DATA);
         }
         catch(PackageManager.NameNotFoundException e) {
             return null;
