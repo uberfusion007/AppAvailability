@@ -30,6 +30,25 @@ Simply open your app's .plist (usually `platforms/ios/<appname>/<appname>-Info.p
 </array>
 ```
 
+## Important: Android queries packages
+Agregar en el config.xml los paquetes que se desean utilizar/consultar. No se recomienda utilizar `QUERY_ALL_PACKAGES` debido a que requiere de políticas más estrictas por parte de Google. 
+[Más info](https://developer.android.com/training/package-visibility/declaring?hl=es-419)
+
+### Agregar en config.xml o en su defecto en AndroidManifest.xml lo siguiente
+
+
+```xml
+<platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <queries>
+            <package android:name="com.twitter.android" />
+            <package android:name="com.facebook.katana" />
+            <!-- OTRAS APPS que se deseen consultar -->
+        </queries>
+    </config-file>
+</platform>
+```
+
 ## 1. Description
 
 This plugin allows you to check if an app is installed on the user's device.
